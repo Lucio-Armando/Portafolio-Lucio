@@ -1,0 +1,450 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* 
+  Estilo global que se aplica a todos los elementos de la página.
+  Elimina márgenes y rellenos predeterminados, ajusta el box-sizing y define la fuente.
+*/
+* {
+    margin: 0; /* Elimina los márgenes de todos los elementos */
+    padding: 0; /* Elimina el relleno de todos los elementos */
+    box-sizing: border-box; /* Incluye padding y border en el ancho y alto del elemento */
+    font-family: "Roboto Mono", monospace; /* Aplica la fuente 'Roboto Mono' o una fuente monoespaciada si no está disponible */
+}
+
+/* 
+  Define el comportamiento del scroll de la página para que sea suave.
+*/
+html {
+    scroll-behavior: smooth; /* Hace que el desplazamiento entre secciones sea suave */
+}
+
+/* 
+  Estilos que se aplican tanto al HTML como al body para definir ancho, alto y alineación de texto.
+*/
+html, body {
+    width: 100%; /* Establece el ancho al 100% del viewport */
+    height: 100%; /* Establece la altura al 100% del viewport */
+    text-align: center; /* Centra el texto horizontalmente */
+}
+
+
+/* Siempre visible y de color blanco para el ícono del menú */
+#icon-nav {
+    display: block; /* Asegura que el ícono siempre esté visible */
+    color: white; /* Color blanco del ícono */
+    font-size: 24px; /* Tamaño del ícono, ajusta según sea necesario */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el ícono */
+    /* Otros estilos opcionales para el ícono */
+}
+
+
+/* Muestra el menú de enlaces cuando el ícono es clicado */
+#icon-nav.active + #nav {
+    display: block; /* Muestra el menú cuando el ícono tiene la clase active */
+}
+
+/* Estilo para el menú de navegación */
+#nav {
+    position: flex;
+    justify-content: space-between;
+    top: 50px; /* Ajusta según la altura del header */
+    margin-right:100px;
+    background: rgba(0, 0, 0, 0.7); /* Fondo semitransparente para el menú */
+    padding: 5px;
+    display: none; /* Oculta el menú de enlaces inicialmente */
+    z-index: 1000; /* Asegura que el menú esté encima de otros elementos */
+}
+
+/* Opcional: Estilo para el menú de enlaces */
+#links {
+    list-style-type: none; /* Elimina los puntos de la lista */
+    padding: 0; /* Elimina el padding */
+    margin: 0; /* Elimina el margin */
+}
+
+/* Opcional: Estilo para los enlaces */
+#links li {
+    margin: 10px 0; /* Espacio entre los enlaces */
+}
+
+#links a {
+    color: white; /* Color blanco de los enlaces */
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+}
+
+
+/* 
+  Sección de inicio de la página.
+  Define la posición, altura, y comportamiento de desbordamiento del contenedor principal.
+*/
+#inicio {
+    position: relative; /* Posiciona el elemento de manera relativa para permitir posicionamiento absoluto de elementos hijos */
+    height: 100vh; /* Establece la altura al 100% de la altura del viewport */
+    overflow: hidden; /* Oculta cualquier contenido que desborde del contenedor */
+}
+
+/* 
+  Estilos para un video de fondo que cubre toda la pantalla.
+  Posiciona el video centrado y adaptado al contenedor con un efecto de fondo fijo.
+*/
+#background-video {
+    position: fixed; /* Fija el video en la pantalla, independiente del scroll */
+    top: 50%; /* Centra el video verticalmente */
+    left: 50%; /* Centra el video horizontalmente */
+    min-width: 100%; /* Asegura que el video cubra al menos el ancho del viewport */
+    min-height: 100%; /* Asegura que el video cubra al menos la altura del viewport */
+    width: auto; /* Ajusta el ancho automáticamente para mantener la proporción del video */
+    height: auto; /* Ajusta la altura automáticamente para mantener la proporción del video */
+    z-index: -1; /* Coloca el video detrás de otros elementos */
+    transform: translate(-50%, -50%); /* Centra el video exactamente en el medio */
+    background-size: cover; /* Asegura que el video se escale para cubrir todo el contenedor sin distorsión */
+}
+
+
+
+/* 
+  Estilos para la clase 'bienvenida' dentro de la sección 'presentacion' 
+  que está contenida dentro del elemento con id 'inicio'.
+  Se enfoca en la alineación del texto, el color y el tamaño de la fuente.
+*/
+#inicio .presentacion .bienvenida {
+    text-align: center; /* Centra el texto horizontalmente */
+    color: white; /* Establece el color del texto a blanco */
+    font-size: 30px; /* Define el tamaño de la fuente a 30 píxeles */
+}
+
+
+#inicio .contenido header .contenido-header{
+    max-width: 1100px;
+    position: fixed; /* Fija el contenedor en la parte superior de la página */   
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para el header */
+    z-index: 1000; /* Asegura que el menú esté encima de otros elementos */
+    padding: 10px 20px;
+}
+
+/* 
+  Estilos para la lista desordenada dentro del nav, 
+  que se encuentra en 'header .contenido-header' dentro de '.contenido' del '#inicio'.
+  Ajusta la visualización y alineación de los elementos de la lista.
+*/
+#inicio .contenido header .contenido-header nav ul {
+    list-style: none; /* Elimina los puntos o números de la lista */
+    display: flex; /* Muestra los elementos de la lista en una fila */
+    align-items: center; /* Alinea los elementos de la lista verticalmente en el centro */
+}
+
+/* 
+  Estilos para los enlaces dentro de los elementos de la lista del menú de navegación.
+  Se enfoca en la apariencia de los enlaces y su comportamiento en transiciones.
+*/
+#inicio .contenido header .contenido-header nav ul li a {
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    color: white; /* Establece el color del texto a blanco */
+    margin: 0 90px; /* Añade un margen de 90px a la izquierda y derecha de cada enlace */
+    font-weight: 400; /* Define un peso de fuente normal (regular) */
+    transition: .5s; /* Aplica una transición suave de 0.5 segundos a los cambios de estilo */
+}
+
+/* 
+  Estilos para la sección 'presentacion' dentro de '.contenido' del '#inicio'.
+  Define el tamaño máximo, disposición de los elementos y alineación de la sección.
+*/
+#inicio .contenido .presentacion {
+    max-width: 1100px; /* Define un ancho máximo de 1100px para la sección */
+    height: 100vh; /* Establece la altura al 100% de la altura del viewport */
+    margin: auto; /* Centra la sección horizontalmente dentro de su contenedor */
+    columns: #fff; /* (Probablemente un error: 'columns' debería eliminarse o ajustarse a una propiedad válida) */
+    display: flex; /* Usa flexbox para organizar los elementos hijos */
+    flex-direction: column; /* Ordena los elementos hijos en una columna */
+    align-items: center; /* Alinea los elementos hijos horizontalmente al centro */
+    justify-content: center; /* Alinea los elementos hijos verticalmente al centro */
+}
+
+/* 
+  Estilos para el elemento h2 dentro de la sección 'presentacion' 
+  en el contenedor con id 'inicio'.
+  Se enfoca en la alineación del texto, el color y el tamaño de la fuente.
+*/
+#inicio .presentacion h2 {
+    text-align: center; /* Centra el texto horizontalmente */
+    color: white; /* Establece el color del texto a blanco */
+    font-size: 90px; /* Define el tamaño de la fuente a 90 píxeles */
+}
+
+
+
+/* 
+  Estilos para la lista de enlaces de redes sociales.
+  Organiza los elementos de la lista en una fila y define su alineación y espaciado.
+*/
+.social-links {
+    list-style: none; /* Elimina las viñetas de la lista */
+    display: flex; /* Aplica Flexbox para la disposición de los elementos */
+    flex-direction: row; /* Alinea los elementos en una fila horizontal */
+    justify-content: space-between; /* Distribuye los elementos con espacio equitativo entre ellos */
+    align-items: center; /* Alinea los elementos verticalmente al centro */
+    gap: 20px; /* Añade un espacio de 20px entre los elementos de la lista */
+    color: inherit; /* Hereda el color del elemento padre */
+    font-size: 40px; /* Define el tamaño de la fuente a 40 píxeles */
+}
+
+/* 
+  Sección de Portafolio.
+  Define las dimensiones y la disposición de los elementos dentro de la sección de portafolio.
+*/
+#portafolio {
+    max-width: 1100px; /* Define un ancho máximo de 1100px para la sección */
+    height: 100vh; /* Establece la altura al 100% de la altura del viewport */
+    margin: auto; /* Centra la sección horizontalmente dentro de su contenedor */
+    margin-top: 80px; /* Añade un margen superior de 80px */
+    columns: #fff; /* (Probablemente un error: 'columns' debería eliminarse o ajustarse a una propiedad válida) */
+    color: white; /* Establece el color del texto a blanco */
+    display: flex; /* Usa flexbox para organizar los elementos hijos */
+    flex-direction: column; /* Ordena los elementos en una columna */
+    align-items: center; /* Alinea los elementos horizontalmente al centro */
+    justify-content: center; /* Alinea los elementos verticalmente al centro */
+}
+
+
+/* 
+  Estilos para el título de la sección dentro del portafolio.
+  Define la posición, márgenes, tamaño de la fuente y un efecto de transformación vertical.
+*/
+#portafolio .titulo-seccion {
+    position: relative; 
+    margin-top: 160px; /* Añade un margen superior de 160px */
+    font-size: 40px; /* Define el tamaño de la fuente a 40 píxeles */
+    font-weight: bold; /* Define la fuente como negrita */
+    transform: translateY(-190px); /* Mueve el elemento 190px hacia arriba */
+}
+
+/* 
+  Estilos para los encabezados h2 dentro de la sección de portafolio.
+  Ajusta el color y el margen superior del título.
+*/
+.portafolio h2 {
+    color: gray; /* Establece el color del texto a gris */
+    margin-top: -160px; /* Aplica un margen negativo para ajustar la posición hacia arriba */
+}
+
+/* 
+  Estilos para las imágenes dentro de la sección de portafolio.
+  Ajusta el tamaño, el margen, la animación y los efectos visuales de las imágenes.
+*/
+.portafolio img {
+    width: 40%; /* Define el ancho de la imagen al 40% del contenedor */
+    margin: 20px auto 40px; /* Aplica margen arriba, auto para centrar horizontalmente, y abajo */
+     /* (Posible error: 'left' no afectará si no tiene posición absoluta/relativa) */
+    transition: all 200ms ease-in-out; /* Define una transición suave para todos los cambios en 200ms */
+    animation: move 2.5s infinite ease-in-out; /* Aplica una animación de movimiento indefinido */
+    filter: drop-shadow(2px 4px 20px #1b1b1b); /* Añade un efecto de sombra con un desplazamiento y difuminado */
+    margin-bottom: 4rem; /* Aplica un margen inferior de 4rem */
+}
+
+/* 
+  Estilos para los encabezados h3 dentro de la sección de portafolio.
+  Define el color, alineación y tamaño de la fuente.
+*/
+.portafolio h3 {
+    color: white; /* Establece el color del texto a blanco */
+    text-align: center; /*alinea el texto en el centro */
+    font-size: 2.1rem; /* Define el tamaño de la fuente a 2.1 rem */
+}
+
+
+.portafolio .tecnologias{
+    width: 20%;
+    flex-direction: row;
+    align-items: center;
+    display: flex; /* Usa Flexbox para alinear los elementos en una fila */
+    gap: 100px;     /* Espacio entre las imágenes */
+    margin-left: 300px;
+    justify-content: space-between;
+    border-radius: 10px;
+}
+  
+.iconojava {
+    max-width: 200%; /* Ajusta el tamaño máximo de las imágenes si es necesario */
+    height: auto;    /* Mantiene la proporción original de las imágenes */
+  }
+
+  .iconomysql {
+    max-width: 200%; /* Ajusta el tamaño máximo de las imágenes si es necesario */
+    height: auto;    /* Mantiene la proporción original de las imágenes */
+    
+  } 
+
+ /* 
+  Sección de Habilidades (Competencias).
+  Define el tamaño, la disposición y la alineación de los elementos dentro de la sección.
+*/
+#competencias {
+    max-width: 1100px; /* Define un ancho máximo de 1100px para la sección */
+    height: 100vh; /* Establece la altura al 100% de la altura del viewport */
+    margin: auto; /* Centra la sección horizontalmente dentro de su contenedor */
+    margin-top: 30px; /* Añade un margen superior de 30px */
+    color: white; /* Establece el color del texto a blanco */
+    display: flex; /* Aplica Flexbox para organizar los elementos hijos */
+    flex-direction: column; /* Ordena los elementos en una columna */
+    align-items: center; /* Alinea los elementos horizontalmente al centro */
+    justify-content: center; /* Alinea los elementos verticalmente al centro */
+}
+
+
+/* 
+  Estilos para el encabezado de la página.
+  Centra el texto y añade un margen inferior.
+*/
+header {
+    text-align: center; /* Centra el texto horizontalmente dentro del encabezado */
+    margin-bottom: 20px; /* Añade un margen inferior de 20px */
+}
+
+/* 
+  Estilos para el título dentro del encabezado.
+  Define el tamaño de la fuente y el color del texto.
+*/
+.titulo {
+    font-size: 2em; /* Establece el tamaño de la fuente a 2 veces el tamaño base */
+    color: white; /* Establece el color del texto a blanco */
+}
+
+/* 
+  Estilos para el contenedor de tarjetas.
+  Utiliza Flexbox para organizar las tarjetas y define su comportamiento de alineación y espaciado.
+*/
+.cards {
+    display: flex; /* Aplica Flexbox para la disposición de los elementos dentro del contenedor */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    gap: 20px; /* Añade un espacio de 20px entre los elementos */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en la siguiente línea si no hay suficiente espacio */
+}
+
+
+/* 
+  Estilos para cada tarjeta individual dentro del contenedor de tarjetas.
+  Define el tamaño, espaciado, apariencia y efectos de animación de las tarjetas.
+*/
+.card {
+    max-width: 300px; /* Establece un ancho máximo de 300px para la tarjeta */
+    padding: 10px; /* Añade un relleno interno de 10px */
+    background-color: transparent; /* Establece el color de fondo como transparente */
+    border-radius: 8px; /* Aplica bordes redondeados con un radio de 8px */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Añade una sombra sutil a la tarjeta */
+    text-align: center; /* Centra el texto dentro de la tarjeta */
+    opacity: 0; /* Comienza invisible */
+    transform: translateX(-100px); /* Comienza desplazada 100px a la izquierda */
+    transition: all 0.8s ease; /* Suaviza la animación para todos los cambios en 0.8 segundos */
+}
+
+/* 
+  Estilos para los subtítulos dentro de cada tarjeta.
+  Define el peso de la fuente, el tamaño y el espaciado.
+*/
+.card > span {
+    font-weight: bold; /* Define el texto como negrita */
+    font-size: 1.2em; /* Establece el tamaño de la fuente a 1.2 veces el tamaño base */
+    margin-bottom: 10px; /* Añade un margen inferior de 10px */
+    display: block; /* Asegura que el elemento se comporte como bloque para ocupar toda la línea */
+}
+
+/* 
+  Estilos para los párrafos dentro de cada tarjeta.
+  Define el tamaño y el color del texto.
+*/
+.card > p {
+    font-size: 1em; /* Establece el tamaño de la fuente a tamaño base */
+    color: gray; /* Define el color del texto como gris */
+}
+
+
+.card.show {
+    opacity: 1; /* Se hacen visibles */
+    transform: translateX(0); /* Se posicionan en su lugar */
+}
+
+
+/* Estilos para la sección "about" */
+#about {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    
+}
+
+/* Contenedor para la foto y la información */
+.about-container {
+    margin-top: 50px;/* Elimina el margen superior */
+    justify-content: center;
+    display: flex;
+    align-items: center; /* Alinea verticalmente los elementos en el centro */
+    padding: 20px;
+    gap: 20px; /* Espacio entre la foto y la información */
+}
+
+/* Estilo para la foto */
+.photo img {
+    border-radius: 30%; /* Hace la foto circular */
+    width: 190px; /* Ajusta el tamaño según sea necesario */
+    height: 190px; /* Ajusta el tamaño según sea necesario */
+    object-fit: cover; /* Asegura que la imagen se ajuste bien en el contorno circular */
+    border: 2px solid #ccc; /* Opcional: agrega un borde alrededor de la foto */
+}
+
+/* Estilo para la información personal */
+.info {
+    max-width: 600px; /* Limita el ancho del texto */
+    color: rgb(85, 84, 84);
+    
+}
+
+.info h1 {
+    margin-top: 0; /* Elimina el margen superior */
+    color: white;
+    font-size: 80px;
+}
+
+.info h2 {
+    margin: 5px 0; /* Espacio entre los párrafos */
+    color: gray;
+}
+
+.info p {
+    margin: 5px 0; /* Espacio entre los párrafos */
+    color: rgb(86, 84, 84);
+}
+
+/* Estilo básico para el botón */
+.btn{
+    display: inline-block; /* Asegura que el enlace se comporte como un botón */
+    background-color: transparent; /* Color de fondo del botón (azul en este caso) */
+    color: rgb(252, 250, 250); /* Color del texto completamente transparente */
+    border: 2px solid white; /* Borde transparente para el efecto hover */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px 20px; /* Espaciado interno del botón */
+    font-size: 16px; /* Tamaño de la fuente */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s, transform 0.2s; /* Transiciones suaves para cambios de color y efecto de presionar */
+}
+
+/* Efecto al pasar el cursor sobre el botón */
+.btn:hover {
+    background-color: white; /* Color de fondo cuando el cursor está sobre el botón */
+    color:black;
+
+
+}
+
+/* Efecto al hacer clic en el botón */
+.btn:active {
+    transform: scale(0.98); /* Efecto de pulsación */
+}
